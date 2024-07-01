@@ -1,7 +1,9 @@
 # hng_bkend_stage1
- GOTO: http://localhost:${PORT}/api/hello?visitor_name="mark"
+ GOTO: https://hng-bkend-stage1.vercel.app/api/hello?visitor_name="mark"
  or
- You can hit post request at http://localhost:${PORT} 
+ You can also hit post end point at your local server request at http://localhost:${PORT}/api/hello?visitor_name="mark"
+
+ I also includ a post request at the home page where you can parse raw json
  raw json
     {
     "name": "Jagabab'"
