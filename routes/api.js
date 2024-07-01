@@ -27,7 +27,7 @@ function sanitizeVisitorName(name) {
 // Key can be any variable
 router.get('/', async (req, res) => {
 
-    const client_ip = '102.89.32.137' //req.connection.remoteAddress || req.headers['x-forwarded-for']  
+    const client_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;// '102.89.32.137' 
 
     let visitorName = req.query.visitor_name;
 
