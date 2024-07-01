@@ -27,11 +27,11 @@ function sanitizeVisitorName(name) {
 // Key can be any variable
 router.get('/', async (req, res) => {
 
-    const client_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;  //'102.89.32.137' 
+    const client_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;  // eg '102.89.32.137' 
     console.log(client_ip)
 
     let visitorName = req.query.visitor_name;
-
+     // If VistorName exist in the query parameter
     if (visitorName) {
 
         visitorName = sanitizeVisitorName(visitorName);
@@ -49,10 +49,14 @@ router.get('/', async (req, res) => {
         const temUrlApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${temApiKey}`
         const response2 = await axios.get(temUrlApi)
         const tempAbsolute = response2.data.main.temp
+
+        // Converting absolute temperate to celcius
         let tempCelcius = tempAbsolute - 273.15
+
+        //rounding up celcius temperature to whole number
         tempCelcius = roundToWhole(tempCelcius)
         
-
+        // Api json response after getting the ip address and temp celcius
         res.json({
             "client_ip": `${client_ip}`, // The Ip address of the requester
             "location": `${cityName}`, // The city of the requester
@@ -64,7 +68,7 @@ router.get('/', async (req, res) => {
         res.status(401).json({msg: "Ip is not Valid"})
     }
 
-      
+    // If Vistors name doesn's exsist in the query parameter
     } else {
       res.status(400).send('Bad Request: visitor_name query parameter is required.');
     }
