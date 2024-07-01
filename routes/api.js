@@ -38,11 +38,13 @@ router.get('/', async (req, res) => {
         visitorName = capitalizeFirstLetter(visitorName);
 
     try {
+        //Reguest to IP api
         const ipUrlApi = `https://freeipapi.com/api/json/${client_ip}`
         const response = await axios.get(ipUrlApi);
         const payload = response.data;
         const {cityName,latitude,longitude} = payload
 
+        //Request to Weather Api
         const temUrlApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${temApiKey}`
         const response2 = await axios.get(temUrlApi)
         const tempAbsolute = response2.data.main.temp
