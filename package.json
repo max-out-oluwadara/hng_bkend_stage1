@@ -1,0 +1,30 @@
+{
+  "name": "hng_bkend_stage1",
+  "version": "1.0.0",
+  "description": "Stage1 task for HNG11",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max-out-oluwadara/hng_bkend_stage1.git"
+  },
+  "keywords": [
+    "HNG"
+  ],
+  "author": "Oluwadara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max-out-oluwadara/hng_bkend_stage1/issues"
+  },
+  "homepage": "https://github.com/max-out-oluwadara/hng_bkend_stage1#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
